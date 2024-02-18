@@ -3,7 +3,7 @@
 O robô de sinais **PyHbSinais** realiza o monitoramento dos **Múltiplos** pares de criptomoedas e envia mensagens de alertas via **Telegram**. Com diversos indicadores e tempos gráficos customizavéis, é uma excelente opção para quem quer ficar por dentro das oportunidades e regiões de preços importantes.
 
 <div align="center">
-<img src = "https://raw.githubusercontent.com/HeberSilverio/PyHbSinais/main/img/VisaoTelegram.JPG" alt="Image" height="150" width="300">
+<img src ="https://raw.githubusercontent.com/HeberSilverio/PyHbSinaisTelegramMultipleAssets/main/img/PyHbSinaisTelegramMultipleAssets.JPG" alt="Image" height="auto" width="300">
 </div>
 
 # 📋 Índice
@@ -59,5 +59,7 @@ Pode-se alterar as criptomoedas no arquivo *config.py* ou analisar todas não co
 Os indicadores podem ser customizados e inseridos a seu critério acessando a biblioteca ![**Talib**](https://github.com/TA-Lib/ta-lib-python/blob/master/talib/_func.pxi) no site.
 
 ## Autor
-Desenvolvido por Héber Silvério 👋 Fique a vontade para se conectar
-<a href="https://www.linkedin.com/in/hebersilverio/" rel="nofollow"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin Badge" data-canonical-src="https://img.shields.io/badge/linkedin-%230077B5.svg?&amp;style=for-the-badge&amp;logo=linkedin&amp;logoColor=white&amp;link=https://www.linkedin.com/in/hebersilverio/" style="max-width:100%;"></a>
+Desenvolvido por **Héber Silvério** 
+<a href="https://www.linkedin.com/in/hebersilverio/" rel="nofollow" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin Badge" data-canonical-src="https://img.shields.io/badge/linkedin-%230077B5.svg?&amp;style=for-the-badge&amp;logo=linkedin&amp;logoColor=white&amp;link=https://www.linkedin.com/in/hebersilverio/" style="max-width:100%;"></a>
+</br>
+👋 Fique a vontade para se conectar
