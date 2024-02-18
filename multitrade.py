@@ -141,7 +141,7 @@ def on_message(message):
          
          
       # Se máxima maior que banda superior
-      if (format(float(candle['h']),'.6f') > format(float(BBSuperior),'.6f')):
+      if (format(float(candle['h']),'.8f') > format(float(BBSuperior),'.8f')):
             telegramBot.send_msg("\n -------------------------------")
             telegramBot.send_msg("=== *VENDER {}* ===".format(TRADE_SYMBOL)
                   +"\n♨️Máxima *ACIMA* da Bollinger ♨️"
@@ -151,18 +151,18 @@ def on_message(message):
                   +"\n*Máxima*....................."+str(format(float(close),'.5f')))
             
          # Se mínima menor que banda inferior
-      if (format(float(candle['l']),'.6f') < format(float(BBInferior),'.8f')):
+      if (format(float(candle['l']),'.8f') < format(float(BBInferior),'.8f')):
             telegramBot.send_msg("\n -------------------------------")
             telegramBot.send_msg("=== *COMPRAR {}* ===".format(TRADE_SYMBOL)
-                  +"\n🗾 *Mínima *ABAIXO* da Bollinger* 🗾"
+                  +"\n 🟢💸 *Mínima *ABAIXO* da Bollinger* 💸🟢"
                   +"\n TIME  " + data_e_hora_em_texto 
                   +"\n*Tempo Gráfico: {}*".format(TIME_INTERVAL)            
-                  +"\nBollinger Inferior.............."+str(format(float(BBInferior),'.6f'))
-                  +"\nFechamento........................."+str(format(float(close),'.6f')))
+                  +"\nBollinger Inferior..........."+str(format(float(BBInferior),'.6f'))
+                  +"\nFechamento..................."+str(format(float(close),'.6f')))
             
          
          # Se fechamento entre a media central
-      if ((format(float(candle['h']),'.6f') > format(float(BBMedia),'.6f')) and (format(float(candle['l']),'.6f') < format(float(BBMedia),'.8f'))):
+      if ((format(float(candle['h']),'.8f') > format(float(BBMedia),'.8f')) and (format(float(candle['l']),'.8f') < format(float(BBMedia),'.8f'))):
             telegramBot.send_msg("\n -------------------------------")
             telegramBot.send_msg("== *LATERALIDADE {}* ==".format(TRADE_SYMBOL)
                   +"\n🟡  🟡  🟡  🟡  🟡  🟡"
@@ -173,25 +173,25 @@ def on_message(message):
                   +"\nFechamento próximo a media central")
                               
       ### Que interessa
-      if format(float(candle['c']),'.6f') < format(float(BBInferior),'.6f'):
+      if format(float(candle['c']),'.8f') < format(float(BBInferior),'.8f'):
             telegramBot.send_msg("\n -------------------------------")
             telegramBot.send_msg("=== *COMPRAR {}* ===".format(TRADE_SYMBOL)
                   +"\n 🟢  🟢  🟢  🟢  🟢  🟢  🟢"
                   +"\nTIME  " + data_e_hora_em_texto 
                   +"\nTempo Gráfico: " +str(TIME_INTERVAL)
                   +"\n*Fechou ABAIXO da Bollinger*"                
-                  +"\nBBInferior.............."+str(format(float(BBInferior),'.6f'))
-                  +"\nBBSuperior.............."+str(format(float(BBSuperior),'.6f')))
+                  +"\nVALOR.............."+str(format(float(candle['c']),'.6f'))
+                  +"\nBBInferior.............."+str(format(float(BBInferior),'.6f')))
          
             
-      elif format(float(candle['c']),'.6f') > format(float(BBSuperior),'.6f'):                             
+      elif format(float(candle['c']),'.8f') > format(float(BBSuperior),'.8f'):                             
          telegramBot.send_msg("=== *VENDER {}* ===".format(TRADE_SYMBOL)
                +"\n 🔴  🔴  🔴  🔴  🔴  🔴"
                +"\nTIME  " + data_e_hora_em_texto 
                +"\nTempo Gráfico: " +str(TIME_INTERVAL)
                +"\n*Fechou ACIMA da Bollinger*"
                +"\nBBSuperior.............."+str(format(float(BBSuperior),'.6f'))
-               +"\nFechamento............"+str(format(float(close),'.6f'))) 
+               +"\nValor............"+str(format(float(candle['c']),'.6f'))) 
          
             
 async def main():
@@ -222,8 +222,7 @@ if __name__ == "__main__":
    status = client.get_account_status()
    info = client.get_account()
    balance = client.get_asset_balance(asset='USDT')
-   telegramBot.send_msg("Status da conta:" + " " + str(status).replace("'data': ","")
-                           +"\nBalance: " + str(balance).replace("'data': ",""))
+   telegramBot.send_msg("Status da conta:" + " " + str(status).replace("'data': ",""))
                           
    
 
