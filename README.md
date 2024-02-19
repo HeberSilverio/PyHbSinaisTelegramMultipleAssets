@@ -1,14 +1,35 @@
 # **ROBÔ DE SINAIS BINANCE - TELEGRAM** 
 
-O robô de sinais **PyHbSinais** realiza o monitoramento dos **Múltiplos** pares de criptomoedas e envia mensagens de alertas via **Telegram**. Com diversos indicadores e tempos gráficos customizavéis, é uma excelente opção para quem quer ficar por dentro das oportunidades e regiões de preços importantes.
+O robô de sinais **PyHbSinaisTelegramMultipleAssets** realiza o monitoramento dos **Múltiplos** pares de criptomoedas e envia mensagens de alertas via **Telegram**. Com diversos indicadores e tempos gráficos customizavéis, é uma excelente opção para quem quer ficar por dentro das oportunidades e regiões de preços importantes.
 
 <div align="center">
 <img src ="https://raw.githubusercontent.com/HeberSilverio/PyHbSinaisTelegramMultipleAssets/main/img/PyHbSinaisTelegramMultipleAssets.JPG" alt="Image" style="max-width: 100%;">
 </div>
 
+## ⌨️ Como executar o projeto
+```* Clonando o repositório
+git clone https://github.com/HeberSilverio/PyHbSinaisTelegramMultipleAssets.git
+
+
+# Execute o arquivo python com o comando
+`python multitrade.py a`
+
+Passando o paramentro "a" para que as moedas analisadas seja do arquivo config.
+Caso não passe o parametro irá analisar todas as moedas com par USDT
+```
+## Autor
+Desenvolvido por **Héber Silvério** </br>
+<a href="https://www.linkedin.com/in/hebersilverio/" rel="nofollow" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin Badge" data-canonical-src="https://img.shields.io/badge/linkedin-%230077B5.svg?&amp;style=for-the-badge&amp;logo=linkedin&amp;logoColor=white&amp;link=https://www.linkedin.com/in/hebersilverio/" style="max-width:100%;"></a>
+
+👋 Fique a vontade para se conectar
+
 # 📋 Índice
+
+*  <a href="">Manual de utilização</a>
+*  <a href="">Links úteis</a>
+*  <a href="">Manual de Desenvolvimento</a>
  
-### Links úteis 
+## Links úteis 
 *  <a href="https://www.youtube.com/watch?v=-FHCUqYHCzY&list=PLYotAkYupgP0obtvJs3iXrNgACv9Iw1g3">Video tutorial</a> 
 
 *  <a href="https://python-binance.readthedocs.io/en/latest/overview.html">Api da binance</a> 

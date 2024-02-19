@@ -11,7 +11,7 @@ import telegramBot as tlg
 import talib
 from datetime import datetime
 
-TIME_INTERVAL ='1m'
+TIME_INTERVAL ='5m'
 
 RSI_PERIOD = 7
 RSI_OVERBOUGHT = 90
@@ -148,7 +148,10 @@ def on_message(message):
                   +"\n TIME  " + data_e_hora_em_texto 
                   +"\n*Tempo Gráfico: {}*".format(TIME_INTERVAL)
                   +"\nBollinger Superior......."+str(format(float(BBSuperior),'.5f'))
-                  +"\n*Máxima*....................."+str(format(float(close),'.5f')))
+                  +"\n*Máxima*....................."+str(format(float(close),'.5f'))
+                  +"\n*VOLUME*....................."+str(format(float(candle['v']),'.5f'))
+                  +"\n*Nº trade*....................."+str(format(float(candle['n']),'.5f')))
+                  
             
          # Se mínima menor que banda inferior
       if (format(float(candle['l']),'.8f') < format(float(BBInferior),'.8f')):
@@ -158,7 +161,9 @@ def on_message(message):
                   +"\n TIME  " + data_e_hora_em_texto 
                   +"\n*Tempo Gráfico: {}*".format(TIME_INTERVAL)            
                   +"\nBollinger Inferior..........."+str(format(float(BBInferior),'.6f'))
-                  +"\nFechamento..................."+str(format(float(close),'.6f')))
+                  +"\nFechamento..................."+str(format(float(candle['l']),'.6f'))
+                  +"\n*VOLUME*....................."+str(format(float(candle['v']),'.5f'))
+                  +"\n*Nº trade*....................."+str(format(float(candle['n']),'.5f')))
             
          
          # Se fechamento entre a media central
@@ -170,28 +175,32 @@ def on_message(message):
                   +"\n*Tempo Gráfico: {}*".format(TIME_INTERVAL) 
                   +"\nBB Central......"+str(format(float(BBMedia),'.6f'))
                   +"\n*Fechamento*......"+str(format(float(close),'.6f'))
-                  +"\nFechamento próximo a media central")
+                  +"\nFechamento próximo a media central"
+                  +"\n*VOLUME*....................."+str(format(float(candle['v']),'.5f'))
+                  +"\n*Nº trade*....................."+str(format(float(candle['n']),'.5f'))
+                  +"\n*VOLUME*....................."+str(format(float(candle['v'][-1]),'.5f')))
+                  
                               
-      ### Que interessa
-      if format(float(candle['c']),'.8f') < format(float(BBInferior),'.8f'):
-            telegramBot.send_msg("\n -------------------------------")
-            telegramBot.send_msg("=== *COMPRAR {}* ===".format(TRADE_SYMBOL)
-                  +"\n 🟢  🟢  🟢  🟢  🟢  🟢  🟢"
-                  +"\nTIME  " + data_e_hora_em_texto 
-                  +"\nTempo Gráfico: " +str(TIME_INTERVAL)
-                  +"\n*Fechou ABAIXO da Bollinger*"                
-                  +"\nVALOR.............."+str(format(float(candle['c']),'.6f'))
-                  +"\nBBInferior.............."+str(format(float(BBInferior),'.6f')))
+      # ### Que interessa
+      # if format(float(candle['c']),'.8f') < format(float(BBInferior),'.8f'):
+      #       telegramBot.send_msg("\n -------------------------------")
+      #       telegramBot.send_msg("=== *COMPRAR {}* ===".format(TRADE_SYMBOL)
+      #             +"\n 🟢  🟢  🟢  🟢  🟢  🟢  🟢"
+      #             +"\nTIME  " + data_e_hora_em_texto 
+      #             +"\nTempo Gráfico: " +str(TIME_INTERVAL)
+      #             +"\n*Fechou ABAIXO da Bollinger*"                
+      #             +"\nVALOR.............."+str(format(float(candle['c']),'.6f'))
+      #             +"\nBBInferior.............."+str(format(float(BBInferior),'.6f')))
          
             
-      elif format(float(candle['c']),'.8f') > format(float(BBSuperior),'.8f'):                             
-         telegramBot.send_msg("=== *VENDER {}* ===".format(TRADE_SYMBOL)
-               +"\n 🔴  🔴  🔴  🔴  🔴  🔴"
-               +"\nTIME  " + data_e_hora_em_texto 
-               +"\nTempo Gráfico: " +str(TIME_INTERVAL)
-               +"\n*Fechou ACIMA da Bollinger*"
-               +"\nBBSuperior.............."+str(format(float(BBSuperior),'.6f'))
-               +"\nValor............"+str(format(float(candle['c']),'.6f'))) 
+      # elif format(float(candle['c']),'.8f') > format(float(BBSuperior),'.8f'):                             
+      #    telegramBot.send_msg("=== *VENDER {}* ===".format(TRADE_SYMBOL)
+      #          +"\n 🔴  🔴  🔴  🔴  🔴  🔴"
+      #          +"\nTIME  " + data_e_hora_em_texto 
+      #          +"\nTempo Gráfico: " +str(TIME_INTERVAL)
+      #          +"\n*Fechou ACIMA da Bollinger*"
+      #          +"\nBBSuperior.............."+str(format(float(BBSuperior),'.6f'))
+      #          +"\nValor............"+str(format(float(candle['c']),'.6f'))) 
          
             
 async def main():
